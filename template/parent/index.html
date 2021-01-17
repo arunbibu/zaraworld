@@ -1,0 +1,51 @@
+{% extends "../parent/header.html" %} {% block content %}
+<div class="container justify-content-center" style="margin-top: 20vh;">
+    <div class="card container" style="max-width:70%;margin:0 auto;background-color:#023474;color:#023474;">
+
+        <div class="card-body d-flex justify-content-center" style="color:white;">
+            {% if user %}
+            <div>
+                <img src=" {{user.ProfileImage.url}}" class="d-flex justify-content-center rounded" style="max-width:50%;">
+            </div>
+
+            <div>
+                <table class="d-flex justify-content-center">
+                    <tr class="table" style="color:white;">
+                        <td>Kid's Name:</td>
+                        <td>{{user.KidName}}</td>
+                    </tr>
+                    <tr class="table" style="color:white;">
+                        <td>Fathers's Name:</td>
+                        <td>{{user.FatherName}}</td>
+                    </tr>
+                    <tr class="table" style="color:white;">
+                        <td>Mother's Name:</td>
+                        <td>{{user.MotherName}}</td>
+                    </tr>
+                    <tr class="table" style="color:white;">
+                        <td>Age:</td>
+                        <td>{{user.Age}}</td>
+                    </tr>
+                    <tr class="table" style="color:white;">
+                        <td>Address:</td>
+                        <td>{{user.Address}}</td>
+                    </tr>
+
+                    <tr class="table" style="color:white;">
+                        <td>Email:</td>
+                        <td>{{user.Email}}</td>
+                    </tr>
+                    <tr class="table" style="color:white;">
+                        <td>Contact Number:</td>
+                        <td>{{user.Phone}}</td>
+                    </tr>
+                </table>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}

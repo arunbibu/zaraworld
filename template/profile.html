@@ -1,0 +1,36 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+<style>
+    body {
+        background: url({% static './image/profile.png'%});
+        background-size: cover;
+        background-attachment: fixed;
+    }
+</style>
+<div>
+    <a href="logout"><button class="btn btn-primary" style="float: right;margin-top: -5vh;margin-right: 10px;">Logout</button></a>
+    <a href="edit"><button class="btn btn-primary" style="float: right;margin-top: -5vh;margin-right: 10px;">Edit Profile</button></a>
+</div>
+<div style="margin-top: 28vh;margin-left: 35vw;">
+    <div class="container">
+        <div style="width:35vw;background: rgba(0,0,0,.2);border-radius: 25px;">
+            <div class="card " style="opacity: 1;color: wheat;padding: 15px;">
+                <center><img class="card-img-top" src="{{user.ProfileImage.url}}" alt="Card image" style="width:45%;border-radius: 50%;"> </center>
+                <center style="text-align: left;margin-left: 20%;">
+                    <div class="card-body" style="color: white;font-weight: 800;">
+                        <h4 class="card-title">Kid's Name - {{user.KidName}}</h4>
+                        <h4 class="card-title">Mother's Name: - {{user.MotherName}}</h4>
+                        <h4 class="card-title">Father's Name - {{user.FatherName}}</h4>
+                        <h4 class="card-title">Email - {{user.Email}}</h4>
+                        <h4 class="card-title">Age - {{user.Age}}</h4>
+                        <h4 class="card-title">Address - {{user.Address}}</h4>
+                        <h4 class="card-title">Contact Number - {{user.Phone}}</h4>
+                    </div>
+                </center>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

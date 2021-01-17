@@ -1,0 +1,21 @@
+{% extends "../dashboard/header.html" %} {% block content %}
+<div class="container justify-content-center" style="margin-top: 20vh;">
+    <div class="card container" style="max-width:70%;margin:0 auto;background-color:#023474;color:#023474;">
+
+        <div style="color: white;">
+            {% for i in user %}
+            <p>Staff Name:&emsp;{{i.StaffName}}</p>
+            {% if i.Status == 0 %}
+            <form action="paymentadmin" method="POST">
+                {% csrf_token %}
+                <input type="checkbox" name="pay" value="{{i.id}}"> Pay the Salary<br> <input type="submit" value="Pay">
+                <hr style="background-color: white;">
+            </form>
+            {% else %}
+            <p>Salary Paid</p>
+            <hr style="background-color: white;"> {% endif %}
+            </p> <br> {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

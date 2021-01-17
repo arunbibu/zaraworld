@@ -1,0 +1,8 @@
+{% extends "../dashboard/header.html" %} {% block content %}
+<div style="margin-top: 100px;"></div>
+<form action="photoupload" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="photos">
+    <input type="submit" value="Upload">
+</form>
+{% endblock %}

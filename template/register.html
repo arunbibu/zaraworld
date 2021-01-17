@@ -1,0 +1,40 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+
+<style>
+    body {
+        background: url({% static './image/profile-min.png'%});
+        background-size: cover;
+    }
+    
+     ::-webkit-input-placeholder {
+        /* Edge */
+        color: white;
+    }
+    
+     :-ms-input-placeholder {
+        /* Internet Explorer */
+        color: white;
+    }
+    
+     ::placeholder {
+        color: white;
+    }
+</style>
+<div style="margin-left: 15%;margin-top: 10%;">
+    <form action="preg" method="POST">
+        {% csrf_token %}
+        <input type="text" style="background-color: #568C92;border-radius: 15px;font-size:16px;margin-top: 15px;text-align: center;color: white;width: 23%;padding:5px;" placeholder="kid's name" name="username" id="">
+        <br>
+        <input type="text" style="background-color: #568C92;border-radius: 15px;font-size:16px;margin-top: 15px;text-align: center;color: white;width: 23%;padding:5px;" placeholder="Email" name="email" id="">
+        <br>
+        <input type="password" style="background-color: #568C92;font-size:16px;border-radius: 15px;margin-top: 10px;;text-align: center;color: white;width: 23%;padding:5px;" placeholder="password" name="password" id="">
+        <br>
+        <br>
+
+        <p style="color: #103953;margin-left: ;">Are you a Member?<a href="login">Sign In</a></p>
+        <input type="submit" style="background-color:#2A5871;font-size:14px;border-radius: 15px;margin-left: 65px;margin-top: 25px;text-align: center;color: white;width: 10%;padding:5px;" name="" id="">
+
+    </form>
+</div>
+
+{% endblock %}

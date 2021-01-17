@@ -1,0 +1,45 @@
+{% extends 'staff/header.html' %} {% block content %}
+<h2 class="text-center">ATTENDANCE SHEET</h2>
+<form action="attendance" method="POST">
+    {% csrf_token %}
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Present/Absent</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+
+            <tr>
+                <td>
+                    <p><input type="text" value="{{user.id}}" name="ids" placeholder="{{user.id}}"></p>
+                </td>
+                <td>
+                    {{user.KidName}}</td>
+                <td>{{user.Email}}</td>
+
+                <td>
+                    {% if user.attendance == "0" %}
+                    <label class="form-check-label" style="color: black;margin-left: 50px;">
+                        <input type="radio" class="form-check-input" name="attendance" value="2" style="margin-left: 40px;"><p>Present</p>
+                    </label>
+                    <label class="form-check-label" style="color: black;margin-left: 50px;">
+                        <input type="radio" class="form-check-input" name="attendance" value="1" style="margin-left: 40px;"><p>Absent</p>
+                    </label> {% elif user.attendance == "1" %}
+                    <p>Absent</p>
+                    {% else %}
+                    <p>Present</p>
+                    {% endif %}
+                </td>
+                <td><input type="submit"></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</form>
+{% endblock %}

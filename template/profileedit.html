@@ -1,0 +1,103 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+<style>
+    body {
+        background: url({% static './image/profile.png'%});
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    
+    .image-upload>input {
+        display: none;
+    }
+    
+     ::-webkit-input-placeholder {
+        /* Edge */
+        color: black;
+    }
+    
+     :-ms-input-placeholder {
+        /* Internet Explorer */
+        color: black;
+    }
+    
+     ::placeholder {
+        color: black;
+    }
+</style>
+<form method="POST" action="edit" enctype="multipart/form-data">
+    {% csrf_token %}
+    <br><br>
+
+    <div style="margin-top: 28vh;margin-left: 35vw;">
+        <div class="container">
+            <div style="width:35vw;background: rgba(0,0,0,.2);border-radius: 25px;">
+                <div class="card " style="opacity: 1;color: wheat;padding: 15px;">
+                    <center class="image-upload">
+                        <label for="file-input">
+                            <img src="{{user.ProfileImage.url}}" style="width:50%;border-radius:35%;margin-top:15%;">
+                        </label>
+                        <input id="file-input" name="profilepic" type="file" /></center>
+                    <center style="text-align: left;margin-left: 20%;">
+                        <div class="card-body" style="color: black;font-weight: 800;">
+                            <h4 class="card-title">Kid's Name - {{user.KidName}}</h4>
+                            <h4 class="card-title">Mother's Name: - <input type="text" name="mothername" style="opacity:.5;color:black;"></h4>
+                            <h4 class="card-title">Father's Name - <input type="text" name="fathername" style="opacity:.5;color:black;"></h4>
+                            <h4 class="card-title">Email - {{user.Email}}</h4>
+                            <h4 class="card-title">Age - <br><input type="text" name="age" style="color:black;"></h4>
+                            <h4 class="card-title">Address -<br> <input type="text" name="address" style="opacity:.5;color:black;"></h4>
+                            <h4 class="card-title">Contact Number - <input type="text" name="phone" style="opacity:.5;color:black;"></h4>
+                            <br><input type="submit" class="btn btn-primary" value="Submit">
+                        </div>
+                    </center>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- <div class="image-upload">
+
+        <label for="file-input">
+             <img src="{{user.ProfileImage.url}}" style="width:10%;border-radius:50%;margin-top:15%;margin-left:35%;">
+        </label>
+
+        <input id="file-input" name="profilepic" type="file" />
+    </div>
+    <table style="background-color:red;">
+
+        <tr>
+            <td>Kid'name</td>
+            <td>{{user.KidName}}</td>
+        </tr>
+        <tr>
+            <td>Fathers name</td>
+            <td><input type="text" name="fathername" style="opacity:.5;color:white;"></td>
+        </tr>
+
+        <tr>
+            <td>Mothers name</td>
+            <td><input type="text" name="mothername" style="opacity:.5;color:white;"></td>
+        </tr>
+
+        <tr>
+            <td>Email</td>
+            <td>{{user.Email}}</td>
+        </tr>
+        <tr>
+            <td>age</td>
+            <td><input type="text" name="age" style="opacity:.1;color:white;"></td>
+        </tr>
+        <tr>
+            <td>address</td>
+            <td><input type="text" name="address" style="opacity:.5;color:white;"></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input type="text" name="phone" style="opacity:.5;color:white;"></td>
+        </tr>
+        <tr>
+            <center><input type="submit" value="Submit" style="color:black"></center>
+        </tr>
+    </table> -->
+</form>
+{% endblock %}

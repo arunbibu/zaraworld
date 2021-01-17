@@ -1,0 +1,64 @@
+{% extends "../parent/header.html" %} {% block content %}
+<style>
+    .image-upload>input {
+        display: none;
+    }
+</style>
+<div class="container justify-content-center" style="margin-top: 20vh;">
+    <div class="card container" style="max-width:70%;margin:0 auto;background-color:#023474;color:#023474;">
+
+        <div class="card-body d-flex justify-content-center" style="color:white;">
+            {% if user %}
+
+
+            <div>
+                <form action="pedit" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <center class="image-upload">
+                        <label for="file-input">
+                            <img src="{{user.ProfileImage.url}}" style="width:50%;margin-top:15%;">
+                        </label>
+                        <input id="file-input" name="image" type="file" /></center>
+                    <table class="d-flex justify-content-center">
+                        <tr class="table" style="color:white;">
+                            <td>Kid's Name:</td>
+                            <td>{{user.KidName}}</td>
+                        </tr>
+                        <tr class="table" style="color:white;">
+                            <td>Fathers's Name:</td>
+                            <td><input type="text" placeholder="Father's Name" style="background: rgba(0, 0, 0, 0);border: none;outline: none;color: white;" name="fathername"></td>
+                        </tr>
+                        <tr class="table" style="color:white;">
+                            <td>Mother's Name:</td>
+                            <td><input type="text" placeholder="Mother's Name" style="background: rgba(0, 0, 0, 0);border: none;outline: none;color: white;" name="mothername"></td>
+                        </tr>
+                        <tr class="table" style="color:white;">
+                            <td>Age:</td>
+                            <td><input type="text" placeholder="Age" style="background: rgba(0, 0, 0, 0);border: none;outline: none;color: white;" name="age"></td>
+                        </tr>
+                        <tr class="table" style="color:white;">
+                            <td>Address:</td>
+                            <td><input type="text" placeholder="Address" style="background: rgba(0, 0, 0, 0);border: none;outline: none;color: white;" name="address"></td>
+                        </tr>
+
+                        <tr class="table" style="color:white;">
+                            <td>Email:</td>
+                            <td>{{user.Email}}</td>
+                        </tr>
+                        <tr class="table" style="color:white;">
+                            <td>Contact Number:</td>
+                            <td><input type="text" placeholder="contact number" style="background: rgba(0, 0, 0, 0);border: none;outline: none;color: white;" name="phone"></td>
+                        </tr>
+                    </table>
+                    <center><input type="submit" value="Submit" style="background-color: #0A6E89;border: none;"></center>
+                </form>
+
+
+            </div>
+
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}

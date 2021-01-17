@@ -1,0 +1,16 @@
+{% extends "../staff/header.html" %} {% block content %}
+<div class="container justify-content-center" style="margin-top: 20vh;">
+    <div class="card container" style="max-width:70%;margin:0 auto;background-color:#023474;color:#023474;">
+
+        <div style="color: white;">
+            <p>{{user.StaffName}}</p>
+            {% if user.Status == 0 %}
+            <p>Salary not recieved yet</p>
+            {% elif user.Status == 1 %}
+            <p>Fees Recieved</p>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}

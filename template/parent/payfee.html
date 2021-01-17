@@ -1,0 +1,20 @@
+{% extends "../parent/header.html" %} {% block content %}
+<div class="container justify-content-center" style="margin-top: 20vh;">
+    <div class="card container" style="max-width:70%;margin:0 auto;background-color:#023474;color:#023474;">
+
+        <div style="color: white;">
+            {{user.KidName}} {% if user.status == "0" %}
+            <p>Fees Not Paid</p>
+            <form action="payfee" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Pay Fee">
+            </form>
+            {% elif user.status == "1" %}
+            <p>Fees Paid Waiting for Confirmation</p>
+            {% elif user.status == "2" %}
+            <p>Fees Paid</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

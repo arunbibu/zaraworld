@@ -1,0 +1,26 @@
+{% extends "../dashboard/header.html" %} {% block content %}
+<div class="container justify-content-center" style="margin-top: 20vh;">
+    <div class="card container" style="max-width:70%;margin:0 auto;background-color:#023474;color:#023474;">
+
+        <div style="color: white;">
+            {% for i in user %}
+            <p>Name: {{i.KidName}}</p>
+            <p>{% if i.status == "0" %}
+                <p>Fees Not Recieved</p>
+                <hr style="background-color: white;"> {% elif i.status == "1" %}
+                <form action="payfeeadmin" method="POST">
+                    {% csrf_token %}
+                    <p>Fees Paid, Plz Confirm</p>
+                    <input type="radio" class="form-check-input ml-3" name="received" value="{{i.id}}">
+                    <p class="ml-5">Recieved?</p>
+                    <input type="submit" value="Confirm">
+                    <hr style="background-color: white;">
+                </form>
+                {% else%}
+                <p>Fees Paid and Confirmed</p>
+                <hr style="background-color: white;"> {% endif %}
+            </p> <br> {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

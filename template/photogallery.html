@@ -1,0 +1,22 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+
+<style>
+    img{
+        width:100%;
+    }
+</style>
+<div class="container mt-5">
+
+<div class="row">
+    {% for i in user %}
+    <div class="col-md-4" style="background:url('{{i.Image.url}}');height:250px;background-size: cover;background-repeat: no-repeat;">
+
+    </div>
+    {% endfor %}
+</div>
+
+
+
+
+
+{% endblock %}
